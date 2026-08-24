@@ -2,7 +2,7 @@ package helpers;
 
 public enum Products {
 
-    CAP("Бейсболка АМК"),
+    CAP("Каска"),
     VETONIT_MOSAIC("Vetonit Mosaic"),
 
     IVSIL_MOSAIK("IVSIL MOSAIK");

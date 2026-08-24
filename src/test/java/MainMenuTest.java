@@ -7,7 +7,7 @@ import static helpers.MainMenu.*;
 import static io.qameta.allure.Allure.step;
 
 @Epic("UI")
-@Owner("Ilgiz Gafarov")
+@Owner("Fetisov")
 @Feature("Проверка страниц из меню навигации")
 @Tag("main_page")
 @DisplayName("Тестирование функционала страниц из меню навигации")

@@ -9,7 +9,7 @@ import pages.SearchPage;
 import static io.qameta.allure.Allure.step;
 
 @Epic("UI")
-@Owner("Ilgiz Gafarov")
+@Owner("Fetisov")
 @Feature("Тестирование функционала поиска")
 @Tag("search")
 @DisplayName("Тестирование функционала поиска")

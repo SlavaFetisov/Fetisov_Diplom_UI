@@ -16,7 +16,7 @@ public interface WebDriverConfig extends Config {
     @DefaultValue("firefox")
     String browser();
 
-    @DefaultValue("113")
+    @DefaultValue("151")
     String browserVersion();
 
     @DefaultValue("1920x1080")

@@ -17,7 +17,7 @@ import static com.codeborne.selenide.Selenide.sleep;
 import static io.qameta.allure.Allure.step;
 
 @Epic("UI")
-@Owner("Ilgiz Gafarov")
+@Owner("Fetisov")
 @Feature("Тестирование функционала корзины")
 @Flaky
 @Tag("basket")

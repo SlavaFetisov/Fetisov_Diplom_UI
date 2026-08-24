@@ -15,7 +15,7 @@ import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Epic("UI")
-@Owner("Ilgiz Gafarov")
+@Owner("Fetisov")
 @Feature("Тестирование функционала фильтра")
 @Tag("filter")
 @DisplayName("Тестирование функционала фильтра")

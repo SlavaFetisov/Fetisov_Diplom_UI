@@ -21,7 +21,7 @@ public class ProductPage {
     public ProductPage addProductToBasket() {
         productName.shouldBe(Condition.visible, Duration.ofSeconds(6));
         basket.click();
-        Selenide.sleep(1500);
+        Selenide.sleep(5500);
         return this;
     }
 

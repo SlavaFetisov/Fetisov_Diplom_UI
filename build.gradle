@@ -12,9 +12,17 @@ def restAssuredVersion = "6.0.0",
     allureVersion = "2.32.0",
     selenideVersion = '7.15.0',
     junitVersion = '5.14.2',
-    slf4jVersion = "2.0.17"
+    ownerVersion = "1.0.12",
+    webdriverVersion = "5.6.2",
+    slf4jVersion = "2.0.7"
 
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
 allure {
+    adapter {
+        aspectjVersion.set("1.9.21")
+    }
     report {
         version.set(allureVersion)
     }
@@ -30,25 +38,25 @@ allure {
 
 dependencies {
     testImplementation(
-            "io.rest-assured:rest-assured:$restAssuredVersion",
-            "io.rest-assured:json-schema-validator:$restAssuredVersion",
-            "io.qameta.allure:allure-rest-assured:$allureVersion",
-            "tools.jackson.core:jackson-databind:3.1.0",
-            "net.datafaker:datafaker:2.5.4",
             "com.codeborne:selenide:$selenideVersion",
+            'org.junit-pioneer:junit-pioneer:2.1.0',
             "io.qameta.allure:allure-selenide:$allureVersion",
-            'org.aspectj:aspectjweaver:1.9.22',
-            'org.junit-pioneer:junit-pioneer:2.3.0',
-            "org.assertj:assertj-core:3.27.7",
-            "org.junit.jupiter:junit-jupiter:5.14.3",
-            'org.aeonbits.owner:owner:1.0.12',
-            "org.slf4j:slf4j-simple:$slf4jVersion"
+            "org.junit.jupiter:junit-jupiter:$junitVersion",
+            "org.slf4j:slf4j-simple:$slf4jVersion",
+            'org.assertj:assertj-core:3.13.2',
+            "io.github.bonigarcia:webdrivermanager:$webdriverVersion",
+            "org.aeonbits.owner:owner:$ownerVersion",
+            "commons-io:commons-io:2.6"
     )
+    dependencies {
+        implementation 'com.github.javafaker:javafaker:1.0.2'
+    }
+
 }
 
 tasks.withType(Test) {
-    useJUnitPlatform()
     systemProperties(System.getProperties())
+    useJUnitPlatform()
 
     testLogging {
         lifecycle {

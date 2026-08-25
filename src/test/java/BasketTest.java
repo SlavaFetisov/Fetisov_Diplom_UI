@@ -54,7 +54,7 @@ public class BasketTest extends TestBase {
         step("Перейти к главной странице", () ->
                 mainPage.openPage());
 
-        step("Перейти в категорию 'Рабочие инмтрументы' из главного меню", () -> {
+        step("Перейти в категорию 'Рабочие инcтрументы' из главного меню", () -> {
             mainPage.chooseCategoryFromMainMenu(MainMenu.TOOLS.getMainMenu());
             productCategoryPage.chooseFirstProduct();
         });

@@ -3,8 +3,7 @@ package helpers;
 public enum Products {
 
     CAP("Каска"),
-    VETONIT_MOSAIC("Vetonit Mosaic"),
-
+    MIXER("Миксер"),
     IVSIL_MOSAIK("IVSIL MOSAIK");
 
     private final String products;

@@ -21,19 +21,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DisplayName("Тестирование функционала фильтра")
 public class FilterProductsTest extends TestBase {
 
-    private static final String NOTEBOOK = "Блокнот на пружине";
-    private static final String T_SHORT = "Алик и Валик";
-    private static final String DIARY = "ежедневник";
-    private final Integer PRICE_TO = 150;
+    private static final String MIXER = "Миксер";
+    private static final String PEN = "Ручка";
+    private static final String BOOK = "Книга";
+    private final Integer PRICE_TO = 500;
     private final Integer PRICE_FROM = 100;
 
 
     static Stream<Arguments> filterProductsTest() {
 
         return Stream.of(
-                Arguments.of(PAPER_PRODUCTS.getMainMenu(), DIARY),
-                Arguments.of(BABY_CLOTHES.getMainMenu(), T_SHORT),
-                Arguments.of(SOUVENIRS.getMainMenu(), NOTEBOOK));
+                Arguments.of(PAPER_PRODUCTS.getMainMenu(), BOOK),
+                Arguments.of(SOUVENIRS.getMainMenu(), PEN),
+                Arguments.of(TOOLS.getMainMenu(), MIXER));
     }
 
     @DisplayName("Фильтрация товара")
@@ -62,7 +62,7 @@ public class FilterProductsTest extends TestBase {
                     mainPage.openPage());
             step("Установить цену 'от' = 100", () ->
                     mainPage.setPriceFrom(String.valueOf(PRICE_FROM)));
-            step("Установить цену 'до' = 150", () ->
+            step("Установить цену 'до' = 500", () ->
                     mainPage.setPriceTo(String.valueOf(PRICE_TO)));
         });
 
@@ -79,7 +79,7 @@ public class FilterProductsTest extends TestBase {
                         .replace(".00 Р", "")));
             }
 
-            assertThat(price).allMatch(x -> x >= 100 && x <= 150);
+            assertThat(price).allMatch(x -> x >= 100 && x <= 500);
         });
     }
 

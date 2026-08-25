@@ -43,7 +43,9 @@ public class TestBase {
     @BeforeEach
     void beforeEach() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+        mainPage.openPage();
     }
+
 
     @AfterEach
     void afterEach() {

@@ -29,7 +29,7 @@ public class MainPage {
 
 
     public MainPage openPage() {
-        open("");
+        open("/");
         return this;
     }
 

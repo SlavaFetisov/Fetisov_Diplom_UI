@@ -1,28 +1,19 @@
 plugins {
-    id 'java-library'
+    id 'java'
     id 'io.qameta.allure' version '2.12.0'
-    id 'io.freefair.lombok' version "9.2.0"
+    id 'io.freefair.lombok' version '8.6'
 }
 
 repositories {
     mavenCentral()
 }
 
-def
-    allureVersion = "2.32.0",
+def allureVersion = '2.27.0',
     selenideVersion = '7.15.0',
     junitVersion = '5.14.2',
-    ownerVersion = "1.0.12",
-    webdriverVersion = "6.3.4",
-    slf4jVersion = "2.0.7"
+    slf4jVersion = '2.0.13'
 
-compileTestJava {
-    options.encoding = 'UTF-8'
-}
 allure {
-    adapter {
-        aspectjVersion.set("1.9.21")
-    }
     report {
         version.set(allureVersion)
     }
@@ -38,51 +29,32 @@ allure {
 
 dependencies {
     testImplementation(
-            "com.codeborne:selenide:$selenideVersion",
-            'org.junit-pioneer:junit-pioneer:2.1.0',
-            "io.qameta.allure:allure-selenide:$allureVersion",
             "org.junit.jupiter:junit-jupiter:$junitVersion",
-            "org.slf4j:slf4j-simple:$slf4jVersion",
-            'org.assertj:assertj-core:3.13.2',
-            "io.github.bonigarcia:webdrivermanager:$webdriverVersion",
-            "org.aeonbits.owner:owner:$ownerVersion",
-            "commons-io:commons-io:2.6"
+            "com.codeborne:selenide:$selenideVersion",
+            "io.qameta.allure:allure-selenide:$allureVersion",
+            'org.aspectj:aspectjweaver:1.9.22',
+            'org.junit-pioneer:junit-pioneer:2.3.0',
+            'org.aeonbits.owner:owner:1.0.12',
+            'org.assertj:assertj-core:3.27.7',
+            "org.slf4j:slf4j-simple:$slf4jVersion"
     )
-    dependencies {
-        implementation 'com.github.javafaker:javafaker:1.0.2'
-    }
-
 }
 
-tasks.withType(Test) {
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Test).configureEach {
+    useJUnitPlatform {
+        excludeTags 'manual'
+    }
+    systemProperty 'file.encoding', 'UTF-8'
     systemProperties(System.getProperties())
-    useJUnitPlatform()
 
     testLogging {
         lifecycle {
-            events "started", "skipped", "failed", "standard_error", "standard_out"
-            exceptionFormat "short"
+            events 'started', 'skipped', 'failed', 'standard_error', 'standard_out'
+            exceptionFormat 'short'
         }
-    }
-}
-task filter_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("filter")
-    }
-}
-task basket_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("basket")
-    }
-}
-task search_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("search")
-    }
-}
-
-task main_page_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("main_page")
     }
 }

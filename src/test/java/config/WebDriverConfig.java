@@ -13,10 +13,10 @@ public interface WebDriverConfig extends Config {
     @DefaultValue("https://shop.proamk.ru")
     String baseUrl();
 
-    @DefaultValue("firefox")
+    @DefaultValue("chrome")
     String browser();
 
-    @DefaultValue("151")
+    @DefaultValue("152")
     String browserVersion();
 
     @DefaultValue("1920x1080")

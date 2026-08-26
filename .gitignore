@@ -7,5 +7,5 @@ build/
 *.log
 out/
 shelf/
-
+allure-results/
 src/test/resources/auth.properties

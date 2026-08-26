@@ -1,21 +1,32 @@
 plugins {
-    id 'java'
+    id 'java-library'
     id 'io.qameta.allure' version '2.12.0'
-    id 'io.freefair.lombok' version '8.6'
+    id "io.freefair.lombok" version "8.6"
 }
 
 repositories {
     mavenCentral()
 }
+def allureVersion = "2.27.0",
+    selenideVersion = "7.15.0",
+    junitVersion = "5.14.2",
+    slf4jVersion = "2.0.13",
+    ownerVersion = "1.0.12",
+    assertjCoreVersion = "3.27.7",
+    webdriverVersion = "5.8.0"
 
-def allureVersion = '2.27.0',
-    selenideVersion = '7.15.0',
-    junitVersion = '5.14.2',
-    slf4jVersion = '2.0.13'
 
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
 allure {
+    adapter {
+        aspectjVersion.set("1.9.21")
+
+    }
     report {
         version.set(allureVersion)
+
     }
     adapter {
         aspectjWeaver.set(true)
@@ -29,33 +40,53 @@ allure {
 
 dependencies {
     testImplementation(
-            "org.junit.jupiter:junit-jupiter:$junitVersion",
-            'com.codeborne:selenide:7.17.0',
-            'io.github.bonigarcia:webdrivermanager:5.8.0',
+            "com.codeborne:selenide:$selenideVersion",
+            'org.junit-pioneer:junit-pioneer:2.1.0',
             "io.qameta.allure:allure-selenide:$allureVersion",
-            'org.aspectj:aspectjweaver:1.9.22',
-            'org.junit-pioneer:junit-pioneer:2.3.0',
-            'org.aeonbits.owner:owner:1.0.12',
-            'org.assertj:assertj-core:3.27.7',
-            "org.slf4j:slf4j-simple:$slf4jVersion"
+            "org.junit.jupiter:junit-jupiter:$junitVersion",
+            "org.slf4j:slf4j-simple:$slf4jVersion",
+            "org.assertj:assertj-core:$assertjCoreVersion",
+            "io.github.bonigarcia:webdrivermanager:$webdriverVersion",
+            "org.aeonbits.owner:owner:$ownerVersion",
+            "commons-io:commons-io:2.6"
+
     )
-}
-
-tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8'
-}
-
-tasks.withType(Test).configureEach {
-    useJUnitPlatform {
-        excludeTags 'manual'
+    dependencies {
+        implementation 'com.github.javafaker:javafaker:1.0.2'
     }
-    systemProperty 'file.encoding', 'UTF-8'
+
+}
+
+tasks.withType(Test) {
     systemProperties(System.getProperties())
+    useJUnitPlatform()
 
     testLogging {
         lifecycle {
-            events 'started', 'skipped', 'failed', 'standard_error', 'standard_out'
-            exceptionFormat 'short'
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
         }
+    }
+}
+
+task filter_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("filter")
+    }
+}
+task basket_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("basket")
+    }
+}
+task search_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("search")
+    }
+}
+
+task main_page_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("main_page")
     }
 }

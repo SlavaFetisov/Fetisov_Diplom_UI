@@ -87,20 +87,20 @@ gradle clean ${TASK} -Dbrowser="${BROWSER}" -DbrowserVersion="${VERSION}" -Dbrow
 ____
 <a id="jenkins"></a>
 
-## <img alt="Jenkins" height="25" src="media/logo/Jenkins.svg" width="25"/></a><a name="Сборка"></a>Сборка в [Jenkins](https://jenkins.autotests.cloud/job/igafarov_amk_ui_autotests/)</a>
+## <img alt="Jenkins" height="25" src="media/logo/Jenkins.svg" width="25"/></a><a name="Сборка"></a>Сборка в [Jenkins](https://jenkins.qa.guru/view/java-students/job/Fetisov_HW25_UI/)</a>
 
 <p align="center">  
-<a href="https://jenkins.autotests.cloud/job/igafarov_amk_ui_autotests/"><img src="media/screenshots/jenkins.jpg" alt="Jenkins"/></a>  
+<a href="https://jenkins.qa.guru/view/java-students/job/Fetisov_HW25_UI/"><img src="media/screenshots/jenkins.jpg" alt="Jenkins"/></a>  
 </p>
 
-## <img alt="Jenkins" height="25" src="media/logo/Jenkins.svg" width="25"/></a><a name="Параметры сборки"></a>Параметры сборки в [Jenkins](https://jenkins.autotests.cloud/job/igafarov_amk_ui_autotests/)</a>
+## <img alt="Jenkins" height="25" src="media/logo/Jenkins.svg" width="25"/></a><a name="Параметры сборки"></a>Параметры сборки в [Jenkins](https://jenkins.qa.guru/view/java-students/job/Fetisov_HW25_UI/)</a>
 <p align="center">  
-<a href="https://jenkins.autotests.cloud/job/igafarov_amk_ui_autotests/"><img src="media/screenshots/build_parameters.jpg" alt="Jenkins"/></a>  
+<a href="https://jenkins.qa.guru/view/java-students/job/Fetisov_HW25_UI/"><img src="media/screenshots/build_parameters.jpg" alt="Jenkins"/></a>  
 </p>
 
 <a id="allure"></a>
 
-## <img src="media/logo/Allure.svg" width="25" height="25"  alt="Allure"/></a> Allure <a target="_blank" href="https://jenkins.autotests.cloud/job/igafarov_amk_ui_autotests/allure/">отчёт</a>
+## <img src="media/logo/Allure.svg" width="25" height="25"  alt="Allure"/></a> Allure <a target="_blank" href="https://jenkins.qa.guru/view/java-students/job/Fetisov_HW25_UI/allure/">отчёт</a>
 
 ### *Основная страница отчёта*
 
@@ -110,7 +110,7 @@ ____
 
 <a id="allure-testops"></a>
 
-## <img src="media/logo/Allure_TO.svg" width="25" height="25"  alt="Allure"/></a>Интеграция с <a target="_blank" href="https://allure.autotests.cloud/project/4089/dashboards">Allure TestOps</a>
+## <img src="media/logo/Allure_TO.svg" width="25" height="25"  alt="Allure"/></a>Интеграция с <a target="_blank" href="https://allure.qa.guru/launch/55934/tree/971594?treeId=10477">Allure TestOps</a>
 
 ### *Allure TestOps Dashboard*
 
@@ -120,7 +120,7 @@ ____
 
 <a id="jira"></a>
 
-## <img src="media/logo/Jira.svg" width="25" height="25"  alt="Allure"/></a>Интеграция с <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-1137">Jira</a>
+## <img src="media/logo/Jira.svg" width="25" height="25"  alt="Allure"/></a>Интеграция с <a target="_blank" href="https://allure.qa.guru/launch/55934/tree/971594?treeId=10477">Jira</a>
 
 <p align="center">  
 <img title="Jira" src="media/screenshots/jira.jpg">  

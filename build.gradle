@@ -30,7 +30,7 @@ allure {
 dependencies {
     testImplementation(
             "org.junit.jupiter:junit-jupiter:$junitVersion",
-            "com.codeborne:selenide:$selenideVersion",
+            'com.codeborne:selenide:7.17.0',
             "io.qameta.allure:allure-selenide:$allureVersion",
             'org.aspectj:aspectjweaver:1.9.22',
             'org.junit-pioneer:junit-pioneer:2.3.0',
